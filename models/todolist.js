@@ -13,8 +13,8 @@ const todoSchema = new Schema({
         required: [true,"User undefined"]
     },
     completeDate: {type: Date, default: null},
-    isCompleted: {type: Boolean, default: false}
-    createDate: {type: Date},
+    isCompleted: {type: Boolean, default: false},
+    createDate: {type: Date}
 },
     { collection: 'todo' });    // name of collection for database
 
