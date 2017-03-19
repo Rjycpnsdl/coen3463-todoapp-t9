@@ -31,7 +31,7 @@ router.route('/register')
         }else{
           res.send({
             success: true,
-            title: 'Reg Success, Logging in.',
+            title: 'Success., Ready to login.',
             response: account,
             redirect: '/todo'
           })
