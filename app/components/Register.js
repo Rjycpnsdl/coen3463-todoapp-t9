@@ -31,7 +31,7 @@ class Register extends Component {
     }
   }
   onUsername(e){
-    var regex= /^([a-zA-Z0-9]{4,})$/;
+    var regex= /^(?=.*\d.*)[A-Za-z0-9]{4,20}$/;
     if(regex.test(this.refs.username.value,) ===false){
         this.setState({
           nameError: true
@@ -46,10 +46,6 @@ class Register extends Component {
 
   onRegister(e){
         e.preventDefault();
-        // if(this.refs.password.value > 5){
-        //     alert("TEST");
-        //     return;
-        // }
         let data={
             username: this.refs.username.value,
             password: this.refs.password.value,

@@ -47832,7 +47832,7 @@ var Register = function (_Component) {
   }, {
     key: 'onUsername',
     value: function onUsername(e) {
-      var regex = /^([a-zA-Z0-9]{4,})$/;
+      var regex = /^(?=.*\d.*)[A-Za-z0-9]{4,20}$/;
       if (regex.test(this.refs.username.value) === false) {
         this.setState({
           nameError: true
@@ -47849,10 +47849,6 @@ var Register = function (_Component) {
       var _this2 = this;
 
       e.preventDefault();
-      // if(this.refs.password.value > 5){
-      //     alert("TEST");
-      //     return;
-      // }
       var data = {
         username: this.refs.username.value,
         password: this.refs.password.value,
