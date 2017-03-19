@@ -1,0 +1,78 @@
+.App {
+
+}
+.App-section {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+
+}
+.App-sections {
+
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 10px;
+
+}
+
+.App-size {
+  height: 500px;
+  width: 500px;
+  background-color: transparent;
+  position: relative;
+  top: 50px;
+  left: 30%;
+}
+
+.App-image {
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  position: absolute;
+  right: 520px;
+  bottom: 320px;
+}
+
+.App-team {
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  position: absolute;
+  right: 490px;
+  bottom: 120px;
+}
+
+
+.App-logo {
+  
+  animation: App-logo-spin infinite 20s linear;
+  height: 20px;
+}
+
+.App-header {
+  position: relative;
+  top: 200px;
+  right: 250px;
+  
+}
+
+.App-intro {
+
+  font-size: large;
+  padding-left: 50px;
+}
+
+.todo-container {
+  height: 200px;
+  width: 50%;
+  background-color: transparent;
+  position: absolute;
+  left: 350px;
+  top: 120px;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
