@@ -47832,7 +47832,7 @@ var Register = function (_Component) {
   }, {
     key: 'onUsername',
     value: function onUsername(e) {
-      var regex = /^(?=.*\d.*)[A-Za-z0-9]{4,20}$/;
+      var regex = /^(?=.*\d)(?=.*[A-Za-z])[A-Za-z0-9]{5,20}$/;
       // var regex= /([A-Za-z0-9]){4,20}$/;
       if (regex.test(this.refs.username.value) === false) {
         this.setState({
