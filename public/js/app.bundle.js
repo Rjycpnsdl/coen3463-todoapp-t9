@@ -21900,40 +21900,20 @@ var ToDos = function ToDos(props) {
                 _react2.default.createElement(
                     _semanticUiReact.List.Content,
                     { floated: 'right' },
-                    _react2.default.createElement(
-                        _semanticUiReact.Button,
-                        { animated: true, size: 'medium', onClick: function onClick(e) {
-                                e.preventDefault();
-                                props.onComplete(props.item, props.index);
-                            } },
-                        _react2.default.createElement(
-                            _semanticUiReact.Button.Content,
-                            { visible: true },
-                            '/'
-                        ),
-                        _react2.default.createElement(
-                            _semanticUiReact.Button.Content,
-                            { hidden: true },
-                            'Done'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _semanticUiReact.Button,
-                        { animated: true, size: 'medium', onClick: function onClick(e) {
-                                e.preventDefault();
-                                props.OnDelete(props.item, props.index);
-                            } },
-                        _react2.default.createElement(
-                            _semanticUiReact.Button.Content,
-                            { visible: true },
-                            'X'
-                        ),
-                        _react2.default.createElement(
-                            _semanticUiReact.Button.Content,
-                            { hidden: true },
-                            'Delete'
-                        )
-                    )
+                    _react2.default.createElement(_semanticUiReact.Icon, {
+                        link: true, name: 'ban',
+                        onClick: function onClick(e) {
+                            e.preventDefault();
+                            props.onComplete(props.item, props.index);
+                        }
+                    }),
+                    _react2.default.createElement(_semanticUiReact.Icon, {
+                        link: true, name: 'close',
+                        visible: true, onClick: function onClick(e) {
+                            e.preventDefault();
+                            props.OnDelete(props.item, props.index);
+                        }
+                    })
                 ),
                 _react2.default.createElement(
                     _semanticUiReact.List.Content,
@@ -48135,8 +48115,8 @@ var Todo = function (_React$Component) {
                     _semanticUiReact.Container,
                     null,
                     _react2.default.createElement(
-                        'p',
-                        null,
+                        _semanticUiReact.Segment,
+                        { className: 'user-container', color: 'teal' },
                         _react2.default.createElement(
                             _semanticUiReact.Label,
                             { as: 'a', color: 'blue', ribbon: true },
@@ -48146,84 +48126,88 @@ var Todo = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             _semanticUiReact.Button,
-                            { floated: 'right', name: 'logout', onClick: this.props.onLogOut },
+                            { floated: 'right', color: 'grey', name: 'logout', onClick: this.props.onLogOut },
                             'Logout'
                         )
                     ),
                     _react2.default.createElement(
-                        'div',
-                        { className: 'App-section' },
+                        _semanticUiReact.Segment,
+                        { color: 'teal', className: 'menu-container' },
                         _react2.default.createElement(
-                            _semanticUiReact.Menu,
-                            { vertical: true },
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'all', active: this.props.activeItem === 'all', onClick: this.props.todoAll }),
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { style: { color: 'red' }, name: 'open', active: this.props.activeItem === 'open', onClick: this.props.todoOpen }),
-                            _react2.default.createElement(_semanticUiReact.Menu.Item, { style: { color: 'green' }, name: 'finished', active: this.props.activeItem === 'completed', onClick: this.props.todoCompleted }),
+                            'div',
+                            { className: 'App-section' },
                             _react2.default.createElement(
-                                _semanticUiReact.Menu.Menu,
-                                { position: 'right' },
-                                _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'Clear All Finished Task', onClick: this.props.DelAllComplete })
+                                _semanticUiReact.Menu,
+                                { vertical: true },
+                                _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'All Task', active: this.props.activeItem === 'all', onClick: this.props.todoAll }),
+                                _react2.default.createElement(_semanticUiReact.Menu.Item, { style: { color: 'red' }, name: 'On-going', active: this.props.activeItem === 'open', onClick: this.props.todoOpen }),
+                                _react2.default.createElement(_semanticUiReact.Menu.Item, { style: { color: 'green' }, name: 'Done', active: this.props.activeItem === 'completed', onClick: this.props.todoCompleted }),
+                                _react2.default.createElement(
+                                    _semanticUiReact.Menu.Menu,
+                                    { position: 'left' },
+                                    _react2.default.createElement(_semanticUiReact.Menu.Item, { name: 'Clear all done!', onClick: this.props.DelAllComplete })
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _semanticUiReact.Segment,
+                        { className: 'todo-container', color: 'teal' },
+                        _react2.default.createElement(
+                            _semanticUiReact.Form,
+                            null,
+                            _react2.default.createElement(
+                                _semanticUiReact.Form.Field,
+                                null,
+                                _react2.default.createElement(
+                                    _semanticUiReact.Input,
+                                    { size: 'tiny' },
+                                    _react2.default.createElement('input', { placeholder: 'What I want to do?..', ref: 'todo' }),
+                                    _react2.default.createElement(
+                                        _semanticUiReact.Button,
+                                        { onClick: this.onAddTodo },
+                                        'Add'
+                                    )
+                                )
                             )
                         ),
                         _react2.default.createElement(
-                            'div',
-                            { className: 'todo-container' },
+                            _semanticUiReact.Segment,
+                            null,
                             _react2.default.createElement(
-                                _semanticUiReact.Form,
-                                null,
-                                _react2.default.createElement(
-                                    _semanticUiReact.Form.Field,
-                                    null,
-                                    _react2.default.createElement(
-                                        _semanticUiReact.Input,
-                                        { size: 'medium' },
-                                        _react2.default.createElement('input', { placeholder: 'Add a item/s.', ref: 'todo' }),
-                                        _react2.default.createElement(
-                                            'button',
-                                            { onClick: this.onAddTodo },
-                                            'Add'
-                                        )
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                _semanticUiReact.Segment,
-                                null,
-                                _react2.default.createElement(
+                                'div',
+                                { className: 'App-section' },
+                                this.props.onUpdate ? _react2.default.createElement(_loading2.default, { text: 'Just one second', speed: 300 }) : _react2.default.createElement(
                                     'div',
-                                    { className: 'App-section' },
-                                    this.props.onUpdate ? _react2.default.createElement(_loading2.default, { text: 'Just one second', speed: 300 }) : _react2.default.createElement(
+                                    null,
+                                    this.props.originalitems - this.props.completedCount === 1 ? _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        this.props.originalitems - this.props.completedCount,
+                                        '/',
+                                        this.props.originalitems,
+                                        ' item left'
+                                    ) : _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        this.props.originalitems - this.props.completedCount,
+                                        '/',
+                                        this.props.originalitems,
+                                        ' items left'
+                                    ),
+                                    this.props.onUpdate ? _react2.default.createElement(_loading2.default, { text: 'Loading', speed: 300 }) : _react2.default.createElement(
                                         'div',
                                         null,
-                                        this.props.originalitems - this.props.completedCount === 1 ? _react2.default.createElement(
-                                            'p',
-                                            null,
-                                            this.props.originalitems - this.props.completedCount,
-                                            '/',
-                                            this.props.originalitems,
-                                            ' item left'
-                                        ) : _react2.default.createElement(
-                                            'p',
-                                            null,
-                                            this.props.originalitems - this.props.completedCount,
-                                            '/',
-                                            this.props.originalitems,
-                                            ' items left'
-                                        ),
-                                        this.props.onUpdate ? _react2.default.createElement(_loading2.default, { text: 'Loading', speed: 300 }) : _react2.default.createElement(
-                                            'div',
-                                            null,
-                                            _react2.default.createElement(
-                                                _semanticUiReact.List,
-                                                { verticalAlign: 'middle' },
-                                                this.props.items.map(function (item, index) {
-                                                    return _react2.default.createElement(_ToDos2.default, { key: index,
-                                                        item: item,
-                                                        index: index,
-                                                        onComplete: _this3.props.onComplete,
-                                                        OnDelete: _this3.props.OnDelete });
-                                                })
-                                            )
+                                        _react2.default.createElement(
+                                            _semanticUiReact.List,
+                                            { verticalAlign: 'middle' },
+                                            this.props.items.map(function (item, index) {
+                                                return _react2.default.createElement(_ToDos2.default, { key: index,
+                                                    item: item,
+                                                    index: index,
+                                                    onComplete: _this3.props.onComplete,
+                                                    OnDelete: _this3.props.OnDelete });
+                                            })
                                         )
                                     )
                                 )
@@ -84161,7 +84145,7 @@ exports = module.exports = __webpack_require__(653)();
 
 
 // module
-exports.push([module.i, ".App {\n\n}\n.App-section {\n  margin-left: 30px;\n  margin-right: 30px;\n  margin-bottom: 10px;\n\n}\n.App-sections {\n\n  margin-top: 20px;\n  margin-left: 30px;\n  margin-right: 10px;\n\n}\n\n.App-size {\n  height: 500px;\n  width: 500px;\n  background-color: transparent;\n  position: relative;\n  top: 50px;\n  left: 30%;\n}\n\n.App-image {\n  height: 200px;\n  width: 200px;\n  background-color: transparent;\n  position: absolute;\n  right: 520px;\n  bottom: 320px;\n}\n\n.App-team {\n  height: 200px;\n  width: 200px;\n  background-color: transparent;\n  position: absolute;\n  right: 490px;\n  bottom: 120px;\n}\n\n\n.App-logo {\n  \n  animation: App-logo-spin infinite 20s linear;\n  height: 20px;\n}\n\n.App-header {\n  position: relative;\n  top: 200px;\n  right: 250px;\n  \n}\n\n.App-intro {\n\n  font-size: large;\n  padding-left: 50px;\n}\n\n.todo-container {\n  height: 200px;\n  width: 50%;\n  background-color: transparent;\n  position: absolute;\n  left: 350px;\n  top: 120px;\n}\n\n\n@keyframes App-logo-spin {\n  from { transform: rotate(0deg); }\n  to { transform: rotate(360deg); }\n}", ""]);
+exports.push([module.i, ".App {\n\n}\n.App-section {\n  margin-left: 10px;\n  margin-right: 10px;\n  margin-bottom: 10px;\n\n}\n.App-sections {\n\n  margin-top: 20px;\n  margin-left: 30px;\n  margin-right: 10px;\n\n}\n\n.App-size {\n  height: 500px;\n  width: 500px;\n  background-color: transparent;\n  position: relative;\n  top: 50px;\n  left: 30%;\n}\n\n.App-image {\n  height: 200px;\n  width: 200px;\n  background-color: transparent;\n  position: absolute;\n  right: 520px;\n  bottom: 320px;\n}\n\n.App-team {\n  height: 200px;\n  width: 200px;\n  background-color: transparent;\n  position: absolute;\n  right: 490px;\n  bottom: 120px;\n}\n\n\n.App-logo {\n  \n  animation: App-logo-spin infinite 20s linear;\n  height: 20px;\n}\n\n.App-header {\n  position: relative;\n  top: 200px;\n  right: 250px;\n  \n}\n\n.App-intro {\n\n  font-size: large;\n  padding-left: 50px;\n}\n\n.todo-container {\n  height: 100%;\n  width: 50%;\n  background-color: transparent;\n  position: absolute;\n  left: 270px;\n  bottom: 120px;\n}\n\n.user-container {\n  height: 50px;\n  width: 18%;\n  background-color: transparent;\n  position: absolute;\n  left: 50px;\n  top:80px;\n  right: 50%;\n}\n\n.menu-container {\n  height: 130px;\n  width: 17%;\n  background-color: transparent;\n  position: absolute;\n  left: 50px;\n  top: 90px;\n}\n\n\n@keyframes App-logo-spin {\n  from { transform: rotate(0deg); }\n  to { transform: rotate(360deg); }\n}", ""]);
 
 // exports
 

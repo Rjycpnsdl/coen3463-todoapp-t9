@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import '../components/App.css';
-import { Image, List, Button, Message } from 'semantic-ui-react';
+import { Image, List, Button, Message, Icon } from 'semantic-ui-react';
 import Loading from './loading';
 
 const ToDos=(props)=>{
@@ -11,28 +11,28 @@ const ToDos=(props)=>{
             info={props.item.isCompleted?false:true}>
             <List.Item>
                 <List.Content floated='right'>
-                    <Button animated size='medium' onClick={(e)=>{
-                                        e.preventDefault()
-                                        props.onComplete(props.item, props.index);
-                                    }}>
-                        <Button.Content visible>/</Button.Content>
-                          <Button.Content hidden>
-                            Done
-                        </Button.Content> 
-                    </Button>
-                    <Button animated size='medium' onClick={(e)=>{
-                                        e.preventDefault()
-                                        props.OnDelete(props.item, props.index);
-                                    }}>
-                        <Button.Content visible>X</Button.Content>
-                          <Button.Content hidden>
-                            Delete
-                        </Button.Content> 
-                    </Button>
+                    <Icon 
+                        link name='ban' 
+                        onClick={(e)=>
+                            {
+                                e.preventDefault()
+                                props.onComplete(props.item, props.index);
+                            }
+                        }
+                    />
+                    <Icon 
+                        link name='close' 
+                        visible onClick=
+                            {(e)=>
+                                {
+                                    e.preventDefault()
+                                    props.OnDelete(props.item, props.index);
+                                }
+                            }
+                    />
                 </List.Content>
               <List.Content> 
-              <List.Header>
-            
+              <List.Header>  
               {props.item.name}
               <br/>
               <br/>

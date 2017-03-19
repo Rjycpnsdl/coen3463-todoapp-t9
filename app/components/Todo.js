@@ -55,25 +55,28 @@ class Todo extends React.Component{
                 <Loading text="Please Wait" speed={300}/>
                 :
                 <Container>
-                <p>
-                    <Label as='a' color='blue' ribbon>Welcome {this.props.name} </Label>
-                    <Button floated='right' name='logout' onClick={this.props.onLogOut}>Logout</Button>
-                </p>
-                <div className="App-section">
-                <Menu vertical>
-                  <Menu.Item name='all' active={this.props.activeItem === 'all'} onClick={this.props.todoAll} />
-                  <Menu.Item style={{color: 'red'}} name='open' active={this.props.activeItem === 'open'} onClick={this.props.todoOpen} />
-                  <Menu.Item style={{color: 'green'}}  name='finished' active={this.props.activeItem === 'completed'} onClick={this.props.todoCompleted} />
-                  <Menu.Menu position='right'>
-                    <Menu.Item name='Clear All Finished Task' onClick={this.props.DelAllComplete} />
-                  </Menu.Menu>
-                </Menu>
-                    <div className='todo-container'>
+                    <Segment className='user-container' color='teal'>
+                        <Label as='a' color='blue' ribbon>Welcome {this.props.name} </Label>
+                        <Button floated='right' color='grey' name='logout' onClick={this.props.onLogOut}>Logout</Button>
+                    </Segment>
+                    <Segment color='teal' className='menu-container'>
+                        <div className="App-section">
+                        <Menu vertical>
+                          <Menu.Item name='All Task' active={this.props.activeItem === 'all'} onClick={this.props.todoAll} />
+                          <Menu.Item style={{color: 'red'}} name='On-going' active={this.props.activeItem === 'open'} onClick={this.props.todoOpen} />
+                          <Menu.Item style={{color: 'green'}}  name='Done' active={this.props.activeItem === 'completed'} onClick={this.props.todoCompleted} />
+                          <Menu.Menu position='left'>
+                          <Menu.Item name='Clear all done!' onClick={this.props.DelAllComplete} />
+                          </Menu.Menu>
+                        </Menu>
+                        </div>
+                    </Segment>
+                    <Segment className='todo-container' color='teal'>
                         <Form>
                             <Form.Field>
-                                <Input size="medium">
-                                    <input placeholder="Add a item/s." ref="todo"/>
-                                    <button onClick={this.onAddTodo}>Add</button>
+                                <Input size="tiny">
+                                    <input placeholder="What I want to do?.." ref="todo"/>
+                                    <Button onClick={this.onAddTodo}>Add</Button>
                                 </Input>
                             </Form.Field>
                         </Form>
@@ -102,8 +105,7 @@ class Todo extends React.Component{
                             }
                             </div>
                         </Segment>
-                    </div>
-                </div>
+                    </Segment>
                 </Container>
                 }
         </div>
