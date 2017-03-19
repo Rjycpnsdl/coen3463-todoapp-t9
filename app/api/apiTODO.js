@@ -8,7 +8,7 @@ var apiTODO = {
             throw(err);
         });
     },
-    onGetTodo: (id)=>{ //[32312312]
+    onGetTodo: (id)=>{ 
         console.log(id);
         return axios.get('/api/v1/Todo')
             .then((mytodo)=>{
@@ -16,7 +16,7 @@ var apiTODO = {
             });
     },
 
-    getCountCompleted: (id)=>{ //[32312312]
+    getCountCompleted: (id)=>{ 
         console.log(id);
         return axios.get('/api/v1/Todo')
             .then((mytodo)=>{
@@ -24,7 +24,7 @@ var apiTODO = {
             });
     },
 
-    onGetOpen: (id)=>{ //[32312312]
+    onGetOpen: (id)=>{ 
         console.log(id);
         return axios.get('/api/v1/Todo')
             .then((mytodo)=>{
@@ -32,7 +32,7 @@ var apiTODO = {
             });
     },
 
-    onGetCompleted: (id)=>{ //[32312312]
+    onGetCompleted: (id)=>{ 
         console.log(id);
         return axios.get('/api/v1/Todo')
             .then((mytodo)=>{

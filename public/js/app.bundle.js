@@ -21792,7 +21792,6 @@ var apiTODO = {
         });
     },
     onGetTodo: function onGetTodo(id) {
-        //[32312312]
         console.log(id);
         return _axios2.default.get('/api/v1/Todo').then(function (mytodo) {
             return mytodo.data.filter(function (todo) {
@@ -21802,7 +21801,6 @@ var apiTODO = {
     },
 
     getCountCompleted: function getCountCompleted(id) {
-        //[32312312]
         console.log(id);
         return _axios2.default.get('/api/v1/Todo').then(function (mytodo) {
             return mytodo.data.filter(function (todo) {
@@ -21812,7 +21810,6 @@ var apiTODO = {
     },
 
     onGetOpen: function onGetOpen(id) {
-        //[32312312]
         console.log(id);
         return _axios2.default.get('/api/v1/Todo').then(function (mytodo) {
             return mytodo.data.filter(function (todo) {
@@ -21822,7 +21819,6 @@ var apiTODO = {
     },
 
     onGetCompleted: function onGetCompleted(id) {
-        //[32312312]
         console.log(id);
         return _axios2.default.get('/api/v1/Todo').then(function (mytodo) {
             return mytodo.data.filter(function (todo) {
