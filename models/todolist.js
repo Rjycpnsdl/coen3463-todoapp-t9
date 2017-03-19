@@ -1,6 +1,8 @@
 let mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+//schema for todolist items
+
 const todoSchema = new Schema({
     name:{
         type: String,
@@ -10,10 +12,11 @@ const todoSchema = new Schema({
         type: Schema.Types.ObjectId, ref: 'User',
         required: [true,"User undefined"]
     },
-    createDate: {type: Date},
     completeDate: {type: Date, default: null},
     isCompleted: {type: Boolean, default: false}
-},{ collection: 'todo' });
+    createDate: {type: Date},
+},
+    { collection: 'todo' });    // name of collection for database
 
 
 module.exports = mongoose.model('Todo', todoSchema);
